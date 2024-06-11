@@ -25,5 +25,4 @@ public class Pessoa {
 	public void setDataNascimento(LocalDate dataNascimento) {
 		this.dataNascimento = dataNascimento;
 	}
-	
 }
