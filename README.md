@@ -1,6 +1,7 @@
 # Projeto Inflex
 
 Este é um projeto em Java que gerencia os dados dos funcionários de acordo com os requisitos especificados.
+Foi feito na IDE ECLIPSE.
 
 ## Funcionalidades
 
@@ -21,6 +22,9 @@ Este é um projeto em Java que gerencia os dados dos funcionários de acordo com
 1. Compile o programa usando um compilador Java.
 2. Execute o programa compilado.
 3. Visualize os dados impressos no console.
+
+![Tela do Terminal](TelaInflex.png)
+
 
 ## Autor
 
