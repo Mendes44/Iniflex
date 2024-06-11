@@ -1,9 +1,13 @@
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class Programa {
@@ -52,6 +56,30 @@ public class Programa {
 		funcionarios.stream()
 			.filter(funcionario -> funcionario.getDataNascimento().getMonthValue() == 10 || funcionario.getDataNascimento().getMonthValue() == 12)
 			.forEach(funcionario -> System.out.println(funcionario.getNome()));
+		
+		
+		//Imprimindo Funcionario Mais Velho.
+		Funcionarios maisVelho = Collections.max(funcionarios, Comparator.comparing(funcionario -> ChronoUnit.YEARS.between(
+				funcionario.getDataNascimento(), LocalDate.now())));
+		System.out.println();
+		System.out.println("Funcionario mais Velho: " + maisVelho.getNome() + 
+				", Idade: " + ChronoUnit.YEARS.between(maisVelho.getDataNascimento(), LocalDate.now()));
+		
+		//Imprimindo em Ordem Alfabetica
+		System.out.println("\n Lista de Funcionarios em  ORDEM ALFABETICA: ");
+		funcionarios.stream()
+			.map(Funcionarios::getNome)
+			.sorted()
+			.forEach(System.out::println);
+		
+		//Imprimir total dos salarios dos funcionários
+		BigDecimal totalSalarios = funcionarios.stream()
+												.map(Funcionarios::getSalario)
+												.reduce(BigDecimal.ZERO, BigDecimal::add);
+		System.out.println("\n Total dos Salarios dos Funcionarios: " + totalSalarios.setScale(2, BigDecimal.ROUND_HALF_UP));
+		
+		//Imprimir quantos salarios minimos ganha cada funcionario
+		
 		
 		
 		sc.close();
