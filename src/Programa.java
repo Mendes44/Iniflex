@@ -37,7 +37,11 @@ public class Programa {
 		
 		
 		//Aumentar Salario em 10%
-		funcionarios.forEach(funcionario -> funcionario.getSalario().multiply(new BigDecimal("1.10")));
+		funcionarios.forEach(funcionario -> {
+		    BigDecimal novoSalario = funcionario.getSalario().multiply(new BigDecimal("1.10"));
+		    funcionario.setSalario(novoSalario);
+		});
+
 		
 		//Agrupar por função
 		Map < String, List<Funcionarios >> funcionariosPorFuncao = funcionarios.stream().collect(Collectors.groupingBy(Funcionarios::getFuncao));
