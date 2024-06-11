@@ -36,9 +36,22 @@ public class Programa {
 		funcionarios.forEach(funcionario -> funcionario.getSalario().multiply(new BigDecimal("1.10")));
 		
 		//Agrupar por função
-		Map<String, List<Funcionarios>> funcionariosPorFuncao = funcionarios.stream().collect(Collectors.groupingBy(Funcionarios::getFuncao));
+		Map < String, List<Funcionarios >> funcionariosPorFuncao = funcionarios.stream().collect(Collectors.groupingBy(Funcionarios::getFuncao));
 		
+		//Imprimir Funcionarios pela função
+		System.out.println("");
+		System.out.println("Funcionarios agrupados por função: ");
+		funcionariosPorFuncao.forEach((funcao, lista) -> {
+			System.out.println(funcao + ":");
+			lista.forEach(funcioarios -> System.out.println("- " + funcioarios.getNome()));
+		});
 		
+		//Imprimir Aniversariantes de 10 e 12
+		System.out.println();
+		System.out.println("Aniversariantes do Mês 10(OUTUBRO) e 12(DEZEMBRO): ");
+		funcionarios.stream()
+			.filter(funcionario -> funcionario.getDataNascimento().getMonthValue() == 10 || funcionario.getDataNascimento().getMonthValue() == 12)
+			.forEach(funcionario -> System.out.println(funcionario.getNome()));
 		
 		
 		sc.close();
