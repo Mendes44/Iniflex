@@ -13,6 +13,7 @@ public class Funcionarios extends Pessoa{
 		this.funcao = funcao;
 	}
 	
+	
 	public BigDecimal getSalario() {
 		return salario;
 	}
