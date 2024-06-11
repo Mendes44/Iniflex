@@ -79,11 +79,15 @@ public class Programa {
 		System.out.println("\n Total dos Salarios dos Funcionarios: " + totalSalarios.setScale(2, BigDecimal.ROUND_HALF_UP));
 		
 		//Imprimir quantos salarios minimos ganha cada funcionario
-		
+		BigDecimal salarioMinimo = new BigDecimal("1212.00");
+		System.out.println();
+		System.out.println("Salarios Minimos ganhos por cada funcionario: ");
+		funcionarios.forEach(funcionario -> {
+			BigDecimal salarioMinimos = funcionario.getSalario().divide(salarioMinimo, 2, BigDecimal.ROUND_DOWN);
+			System.out.println(funcionario.getNome() + ": " + salarioMinimos);
+		});
 		
 		
 		sc.close();
-
 	}
-
 }
